@@ -1,0 +1,20 @@
+name: "Test Composite Action"
+description: "Use typescript action in composite action to test AOP flow."
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checking out!
+      uses: actions/checkout@v3          
+
+    - name: Typescript-Action
+      uses: actions-on-packages/typescript-action@1.4.21
+      with:
+        milliseconds: 1000
+
+    - name: Echo 
+      run: |
+          echo "This is after the package action step"
+      shell: bash
+
+      
